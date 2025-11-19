@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevent horizontal overflow */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.custom-orange-bg {
+  background-color: #FE5000;
+}
+.custom-orange-bg-20 {
+  background-color: #FFEFE8;
+}
+.custom-orange-bg-50 {
+  background-color: #FFDBCC;
+}
+.custom-orange-text {
+  color: #FE5000;
+}
+
+.hover\:custom-orange-bg:hover {
+  background-color: #FE5000;
+}
+
+.hover\:border-custom-orange:hover {
+  border-color: #FE5000;
+}
+
+.custom-purple-bg {
+  background-color: #C800FF;
+}
+.custom-purple-bg-20 {
+  background-color: #FCEFFF;
+}
+.custom-purple-bg-120 {
+  background-color: #8700AC;
+}
+.custom-purple-text {
+  color: #C800FF;
+}
+
+.custom-grey-bg {
+  background-color: #F5F5F5;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #Fe5000 0%, #C800FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Mobile menu improvements */
+@media (max-width: 768px) {
+  .time-horizon-menu {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  .time-horizon-menu::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}
