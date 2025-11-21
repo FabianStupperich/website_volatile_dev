@@ -15,6 +15,8 @@ import Platform from './pages/Platform';
 import Impressum from './pages/Impressum';
 import Datenschutzerklärung from './pages/Datenschutzerklärung';
 import AGB from './pages/AGB';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 
 // Product Pages
 import MarketDataInsights from './pages/products/MarketDataInsights';
@@ -54,6 +56,8 @@ function App() {
                       <Route path="/" element={<Startseite />} />
                       <Route path="/company" element={<Company />} />
                       <Route path="/kontakt" element={<Kontakt />} />
+                      <Route path="/blog" element={<Blog />} />
+                      <Route path="/blog/:id" element={<BlogPost />} />
                       <Route path="/impressum" element={<Impressum />} />
                       <Route path="/datenschutzerklärung" element={<Datenschutzerklärung />} />
                       <Route path="/agb" element={<AGB />} />

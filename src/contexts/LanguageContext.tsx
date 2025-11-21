@@ -44,6 +44,7 @@ const translations = {
     'company.title': 'Über Volatile',
     'company.visionMission': 'Über Uns',
     'company.careers': 'Open Positions',
+    'company.blog': 'Blog',
     'company.contact': 'Kontakt',
     
     // Homepage
@@ -574,6 +575,8 @@ const translations = {
     // Company dropdown
     'company.visionMission.nav.title': 'Unsere Story & Mission',
     'company.visionMission.nav.description': 'Unternehmen in Europa fehlt ein einfacher Zugang zu umfassenden Energiedaten und Informationen. Wir bei Volatile schaffen die nötige Datengrundlage und machen die darin versteckten Erkenntnisse für alle Marktteilnehmer nutzbar.',
+    'company.blog.nav.title': 'Blog',
+    'company.blog.nav.description': 'Unser Blog',
     'company.contact.nav.title': 'Ihre Ansprechpartner',
     'company.contact.nav.description': 'Nehmen Sie Kontakt mit unserem Team auf oder vereinbaren Sie eine persönliche Demo. Wir freuen uns darauf, Ihr Unternehmen mit unseren Daten und Services voranzubringen.',
 
@@ -1020,6 +1023,7 @@ const translations = {
     'company.title': 'About Volatile',
     'company.visionMission': 'About us',
     'company.careers': 'Open Positions',
+    'company.blog': 'Blog',
     'company.contact': 'Contact',
     
     // Homepage
@@ -1550,6 +1554,8 @@ const translations = {
     // Company dropdown
     'company.visionMission.nav.title': 'Our Story & Mission',
     'company.visionMission.nav.description': 'Companies in Europe lack easy access to comprehensive energy data and information. We at Volatile build the necessary data foundation and make the insights hidden within it accessible for all market participants.',
+    'company.blog.nav.title': 'Blog',
+    'company.blog.nav.description': 'Our blog',
     'company.contact.nav.title': 'Get in touch',
     'company.contact.nav.description': 'Get in touch with our team or arrange a personal demo. We look forward to supporting your company with our data and services.',
 

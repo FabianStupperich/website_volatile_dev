@@ -138,6 +138,15 @@ const Footer = () => {
               </li>
               <li>
                 <Link
+                  to="/blog"
+                  onClick={scrollToTop}
+                  className="text-gray-300 hover:text-white transition-colors duration-200"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/kontakt"
                   onClick={scrollToTop}
                   className="text-gray-300 hover:text-white transition-colors duration-200"

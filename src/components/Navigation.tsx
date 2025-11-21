@@ -233,6 +233,17 @@ const Navigation = () => {
           ]
         },*/
         {
+          name: t('company.blog'),
+          href: '/blog',
+          title: t('company.blog.nav.title'),
+          detailedDescription: t('company.blog.nav.description'),
+          image: '',
+          sections: [
+          
+          ],
+          isSpecial: false
+        },
+        {
           name: t('company.contact'),
           href: '/kontakt',
           title: t('company.contact.nav.title'),
