@@ -16,11 +16,11 @@ interface BlogPost {
 const blogPosts: BlogPost[] = [
   {
     id: 1,
-    title: 'Introducing Volatile Spot-1.0',
-    description: 'Probabilistic short-term power market forecasts',
+    title: 'Introducing Volatile Spot 1.0',
+    description: 'Probabilistic short-term power market forecasting',
     author: 'Fabian Stupperich',
     authorImage: './public/images/team/fabian-stupperich.jpg',
-    date: '21. November 2025',
+    date: '24 November 2025',
     category: 'Product Launch',
     image: './public/images/short-term-price-forecast-day-ahead-backcasting-2025-11-19T12-54-20.077Z.jpg'
   }

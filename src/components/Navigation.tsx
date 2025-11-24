@@ -241,7 +241,16 @@ const Navigation = () => {
           sections: [
           
           ],
-          isSpecial: false
+          isSpecial: false,
+          showLatestPost: true,
+          latestPost: {
+            title: 'Introducing Volatile Spot 1.0',
+            description: 'Probabilistic short-term power market forecasting',
+            date: '24 November 2025',
+            category: 'Product Launch',
+            image: '/public/images/short-term-price-forecast-day-ahead-backcasting-2025-11-19T12-54-20.077Z.jpg',
+            href: '/blog/1'
+          }
         },
         {
           name: t('company.contact'),
@@ -500,88 +509,134 @@ const Navigation = () => {
                       </div>
                       
                       {/* Right Side - Merged Content Area */}
-                      <div className="flex-1 p-6 bg-gradient-to-br from-white dark:from-gray-800 to-gray-50 dark:to-gray-700 rounded-b-xl md:rounded-r-xl md:rounded-bl-none">
+                      <div className="flex-1 p-6 bg-gradient-to-br from-blue-50 dark:from-gray-800 to-gray-50 dark:to-gray-700 rounded-r-xl">
                         <div className="h-full flex flex-col">
                           {(() => {
                             const activeSubItem = getActiveSubItem(item);
                             return activeSubItem ? (
                               <>
-                                {/* Upper Section - Subpage Information */}
-                                <div className="mb-6">
-                                  {/* Text content first */}
-                                  <h4 className="font-headline font-bold text-black dark:text-white mb-3 text-xl">
-                                    {activeSubItem.title || activeSubItem.name}
-                                  </h4>
-                                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                                    {activeSubItem.detailedDescription}
-                                  </p>
-                                  
-                                  {/* Image below text (if available) */}
-                                  {activeSubItem.image && (
-                                    <div className="w-full mt-4">
-                                      <div className="rounded-lg overflow-hidden h-40">
-                                        <img 
-                                          src={activeSubItem.image} 
-                                          alt={activeSubItem.name} 
-                                          className="w-full h-full object-cover"
-                                        />
-                                      </div>
-                                    </div>
-                                  )}
-                                  
-                                  {/* Features List */}
-                                  {activeSubItem.features && (
-                                    <div className="mb-4 mt-4">
-                                      <h5 className="font-semibold text-gray-900 dark:text-gray-100 mb-2 text-sm">
-                                        {activeSubItem.name === 'Kontakt & Demo' ? 'Was Sie erwarten können:' : 'Hauptfunktionen:'}
-                                      </h5>
-                                      <div className="grid grid-cols-2 gap-2">
-                                        {activeSubItem.features.map((feature, index) => (
-                                          <div key={index} className="flex items-start text-sm text-gray-600 dark:text-gray-300">
-                                            <div className="w-1.5 h-1.5 bg-night-blue dark:bg-blue-400 rounded-full mt-2 mr-2 flex-shrink-0"></div>
-                                            {feature}
-                                          </div>
-                                        ))}
-                                      </div>
-                                    </div>
-                                  )}
-                                </div>
-                                
-                                {/* Lower Section - Page Sections with Enhanced Button Styling */}
-                                <div className="pt-4">
-                                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                     {activeSubItem.sections?.map((section) => (
-                                       <Link
-                                         key={section.name}
-                                         to={section.href}
-                                         className="flex items-center px-4 py-3 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-600 hover:text-white hover:custom-orange-bg rounded-lg transition-all duration-200 border border-gray-200 dark:border-gray-500 hover:custom-orange-border shadow-sm hover:shadow-md transform hover:scale-105 font-medium"
-                                         onClick={() => handleSectionNavigation(section.href)}
-                                       >
-                                        <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-white">
-                                          {section.icon && <section.icon className="w-4 h-4 text-orange-500" />}
-                                        </div>
-                                        <span>{section.name}</span>
-                                       </Link>
-                                     )) || (
-                                       <p className="text-sm text-gray-500 dark:text-gray-400 italic col-span-2">
-                                         {t('nav.dropdown.noSubareas')}
-                                       </p>
-                                     )}
-                                   </div>
-                                </div>
-                                
-                                {/* CTA Button */}
-                                {activeSubItem.name !== t('company.contact') && (
-                                  <div className="mt-auto pt-4">
+                                {activeSubItem.showLatestPost && activeSubItem.latestPost ? (
+                                  <>
+                                    <h5 className="font-semibold text-gray-500 dark:text-gray-400 text-xs mb-4 uppercase tracking-wide">
+                                      Neuester Beitrag
+                                    </h5>
                                     <Link
-                                      to={activeSubItem.href}
-                                      className="inline-flex items-center bg-night-blue dark:bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:custom-orange-bg dark:hover:bg-blue-700 transition-colors duration-200 text-sm"
+                                      to={activeSubItem.latestPost.href}
+                                      className="block bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-500 rounded-lg overflow-hidden transition-all duration-200 border border-gray-200 dark:border-gray-500 shadow-sm hover:shadow-md mb-4"
                                       onClick={handleSectionClick}
                                     >
-                                      {activeSubItem.name === t('company.contact') ? t('nav.bookDemo') : t('nav.dropdown.learnMore')}
-                                      <ArrowRight className="h-4 w-4 ml-2" />
+                                      <img
+                                        src={activeSubItem.latestPost.image}
+                                        alt={activeSubItem.latestPost.title}
+                                        className="w-full h-40 object-cover"
+                                      />
+                                      <div className="p-4">
+                                        <div className="flex items-center gap-2 mb-2">
+                                          <span className="text-xs font-semibold text-night-blue dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded">
+                                            {activeSubItem.latestPost.category}
+                                          </span>
+                                          <span className="text-xs text-gray-500 dark:text-gray-400">
+                                            {activeSubItem.latestPost.date}
+                                          </span>
+                                        </div>
+                                        <h6 className="font-semibold text-black dark:text-white mb-2 text-lg">
+                                          {activeSubItem.latestPost.title}
+                                        </h6>
+                                        <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                                          {activeSubItem.latestPost.description}
+                                        </p>
+                                        <div className="flex items-center text-night-blue dark:text-blue-400 font-medium text-sm">
+                                          Weiterlesen
+                                          <ArrowRight className="h-4 w-4 ml-1" />
+                                        </div>
+                                      </div>
                                     </Link>
+                                    <Link
+                                      to="/blog"
+                                      className="lex items-center px-4 py-3 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-600 hover:text-white hover:custom-orange-bg rounded-lg transition-all duration-200 border border-gray-200 dark:border-gray-500 hover:custom-orange-border shadow-sm hover:shadow-md transform hover:scale-105 font-medium"
+                                      onClick={handleSectionClick}
+                                    >
+                                      Alle Beiträge anzeigen
+                                    </Link>
+                                  </>
+                                ) : (
+                                  <>
+                                    {/* Upper Section - Subpage Information */}
+                                    <div className="mb-6">
+                                      {/* Text content first */}
+                                      <h4 className="font-headline font-bold text-black dark:text-white mb-3 text-xl">
+                                        {activeSubItem.title || activeSubItem.name}
+                                      </h4>
+                                      <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                        {activeSubItem.detailedDescription}
+                                      </p>
+                                      
+                                      {/* Image below text (if available) */}
+                                      {activeSubItem.image && (
+                                        <div className="w-full mt-4">
+                                          <div className="rounded-lg overflow-hidden h-40">
+                                            <img 
+                                              src={activeSubItem.image} 
+                                              alt={activeSubItem.name} 
+                                              className="w-full h-full object-cover"
+                                            />
+                                          </div>
+                                        </div>
+                                      )}
+
+                                      {/* Features List */}
+                                      {activeSubItem.features && (
+                                        <div className="mb-4 mt-4">
+                                          <h5 className="font-semibold text-gray-900 dark:text-gray-100 mb-2 text-sm">
+                                            {activeSubItem.name === 'Kontakt & Demo' ? 'Was Sie erwarten können:' : 'Hauptfunktionen:'}
+                                          </h5>
+                                          <div className="grid grid-cols-2 gap-2">
+                                            {activeSubItem.features.map((feature, index) => (
+                                              <div key={index} className="flex items-start text-sm text-gray-600 dark:text-gray-300">
+                                                <div className="w-1.5 h-1.5 bg-night-blue dark:bg-blue-400 rounded-full mt-2 mr-2 flex-shrink-0"></div>
+                                                {feature}
+                                              </div>
+                                            ))}
+                                          </div>
+                                        </div>
+                                      )}
+                                    </div>
+
+                                    {/* Lower Section - Page Sections */}
+                                    <div className="pt-4">
+                                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        {activeSubItem.sections?.map((section) => (
+                                          <Link
+                                            key={section.name}
+                                            to={section.href}
+                                            className="flex items-center px-4 py-3 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-600 hover:text-white hover:custom-orange-bg rounded-lg transition-all duration-200 border border-gray-200 dark:border-gray-500 hover:custom-orange-border shadow-sm hover:shadow-md transform hover:scale-105 font-medium"
+                                            onClick={() => handleSectionNavigation(section.href)}
+                                          >
+                                            <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-white">
+                                              {section.icon && <section.icon className="w-4 h-4 text-orange-500" />}
+                                            </div>
+                                            <span>{section.name}</span>
+                                          </Link>
+                                        )) || (
+                                          <p className="text-sm text-gray-500 dark:text-gray-400 italic col-span-2">
+                                            {t('nav.dropdown.noSubareas')}
+                                          </p>
+                                        )}
+                                      </div>
+                                    </div>
+
+                                    {/* CTA Button */}
+                                    <div className="mt-auto pt-4">
+                                      <Link
+                                        to={activeSubItem.href}
+                                        className="inline-flex items-center bg-night-blue dark:bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:custom-orange-bg dark:hover:bg-blue-700 transition-colors duration-200 text-sm"
+                                        onClick={handleSectionClick}
+                                      >
+                                        {activeSubItem.name === t('company.contact') ? t('nav.bookDemo') : t('nav.dropdown.learnMore')}
+                                        <ArrowRight className="h-4 w-4 ml-2" />
+                                      </Link>
                                   </div>
+                                  </>
                                 )}
                               </>
                             ) : (
